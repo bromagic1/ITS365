@@ -19,7 +19,7 @@ function predict(model) {
     const labelTensor = tf.tensor([parseInt(userInput2)]);
     
     model.then(model => {
-        let result = model.predict([inputTensor, labelTensor]);
+        let result = model.predict(inputTensor);
         result = result.round().dataSync()[0];
         alert("XOR RESULT: " + result);
         
