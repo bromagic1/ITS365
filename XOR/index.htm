@@ -19,7 +19,7 @@ function predict(model) {
     const inputTensor2 = tf.tensor([parseInt(userInput2)]);
     
     model.then(model => {
-        let result = model.predict(inputTensor);
+        let result = model.predict(inputTensor, inputTensor2);
         result = result.round().dataSync()[0];
         alert(result ? "odd" : "even");
         
