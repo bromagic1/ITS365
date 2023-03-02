@@ -15,6 +15,8 @@ async function load() {
 function predict(model) {
     const userInput = document.getElementById('userInput').value;
     const inputTensor = tf.tensor([parseInt(userInput)]);
+    const userInput2 = document.getElementById('userInput').value;
+    const inputTensor2 = tf.tensor([parseInt(userInput)]);
     
     model.then(model => {
         let result = model.predict(inputTensor);
@@ -33,8 +35,9 @@ const model = load();
 <h3>  XOR Model  </h3>
 
 <input id="userInput" type="text">  </input>
+<input id="userInput2" type="text">  </input>
 
-<button onclick="predict(model)">Predict</button>
+<button onclick="predict(model)">XOR</button>
 
 </body>
 
