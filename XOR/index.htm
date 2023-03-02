@@ -20,7 +20,7 @@ function predict(model) {
 
     
     model.then(model => {
-        let result = model.predict(inputTensor, inputTensor2);
+        let result = model.predict([inputTensor, inputTensor2]);
         alert("XOR RESULT: " + result);
         
     });
