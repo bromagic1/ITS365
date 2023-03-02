@@ -18,6 +18,7 @@ function predict(model) {
     const userInput2 = document.getElementById('userInput2').value;
     const inputTensor2 = tf.tensor([parseInt(userInput2)]);
 
+     alert("XOR RESULT: " + result);
     
     model.then(model => {
         let result = model.predict(inputTensor, inputTensor2);
