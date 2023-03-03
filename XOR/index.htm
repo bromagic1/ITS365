@@ -7,21 +7,20 @@
 <script>
 
 async function load() {
-     const url = 'https://bromagic1.github.io/ITS365/XOR/model.json';
-     const model = await tf.loadLayersModel(url);
-     return model;
+    const url = 'https://bromagic1.github.io/ITS365/XOR/model.json';
+    const model = await tf.loadLayersModel(url);
+    return model;
 };
 
 function predict(model) {
-    alert("Yo");
-    const userInput = document.getElementById('userInput').value;
-    const inputTensor = tf.tensor([parseInt(userInput)]);
-    const userInput2 = document.getElementById('userInput2').value;
-    const labelTensor = tf.tensor([parseInt(userInput2)]);
 
-    
+    const userInput = document.getElementById('userInput').value;
+    const userInput2 = document.getElementById('userInput2').value;
+    const inputTensor = tf.tensor([[parseInt(userInput), (userInput2)]]);
+
     model.then(model => {
         let result = model.predict(inputTensor);
+        result = result.round().dataSync()[0];
         alert("XOR RESULT: " + result);
         
     });
@@ -33,7 +32,7 @@ const model = load();
 </head>
 
 <body>
-<h3>  XOR Model  TEST</h3>
+<h3>  XOR Model  </h3>
 
 <input id="userInput" type="text">  </input>
 <input id="userInput2" type="text">  </input>
