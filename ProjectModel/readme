@@ -1,0 +1,4 @@
+# Tensorflow model deployment for project.
+# Predicts which team in the NHL will win the Stanley Cup based on a provided csv file containing the league stats from that year.
+
+* Link: https://bromagic1.github.io/ITS365/ProjectModel/index.htm
