@@ -38,7 +38,7 @@
     // Make a prediction based on input values
     async function predict() {
       // Get input values
-      const input1 = Number(document.getElementById('input1' + '').value);
+      const input1 = Number(document.getElementById('input1').value);
       const input2 = Number(document.getElementById('input2').value);
       const input3 = Number(document.getElementById('input3').value);
       const input4 = Number(document.getElementById('input4').value);
@@ -75,7 +75,7 @@
       
       // Convert the prediction to a readable format
       const predictionData = await prediction.data();
-      const predictedValue = predictionData;
+      const predictedValue = predictionData[0];
 
       // Update the DOM with the prediction
       const predictionElement = document.getElementById('prediction');
@@ -91,31 +91,31 @@
 
 
   <form id="input-form">
-    <label for="input1">Input 1:</label>
+    <label for="input1">Input 1: </label>
     <input type="number" id="input1" name="input1"><br>
 
-    <label for="input2">Input 2:</label>
+    <label for="input2">Input 2: </label>
     <input type="number" id="input2" name="input2"><br>
 
-    <label for="input3">Input 3:</label>
+    <label for="input3">Input 3: </label>
     <input type="number" id="input3" name="input3"><br>
 
-    <label for="input4">Input 4:</label>
+    <label for="input4">Input 4: </label>
     <input type="number" id="input4" name="input4"><br>
       
-    <label for="input5">Input 5:</label>
+    <label for="input5">Input 5: </label>
     <input type="number" id="input5" name="input5"><br>  
       
-    <label for="input6">Input 6:</label>
+    <label for="input6">Input 6: </label>
     <input type="number" id="input6" name="input6"><br>
       
-    <label for="input7">Input 7:</label>
+    <label for="input7">Input 7: </label>
     <input type="number" id="input7" name="input7"><br>  
       
-    <label for="input8">Input 8:</label>
+    <label for="input8">Input 8: </label>
     <input type="number" id="input8" name="input8"><br>  
       
-    <label for="input9">Input 9:</label>
+    <label for="input9">Input 9: </label>
     <input type="number" id="input9" name="input9"><br>
      
     <label for="input10">Input 10:</label>
@@ -175,6 +175,7 @@
     <label for="input28">Input 28:</label>
     <input type="number" id="input28" name="input28"><br>
       
+    <br>
     <button type="button" onclick="predict()">Predict</button>
   </form>
 
