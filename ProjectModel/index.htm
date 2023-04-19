@@ -39,14 +39,33 @@
       const model = loadModel();   
 
     // Make a prediction based on input values
-    async function predict(model, inputs) {
-      const inputTensor = tf.tensor2d(inputs, [1, 28]);
-      const outputTensor = model.predict(inputTensor);
-      const output = outputTensor.dataSync()[0];
-      outputTensor.dispose();
-      inputTensor.dispose();
-      return output;
+async function predict(model, inputs) {
+  const inputTensor = tf.tensor2d(inputs, [1, 28]);
+  const outputTensor = model.predict(inputTensor);
+  const output = outputTensor.dataSync()[0];
+  return output;
+}
+        
+        function validateInputs() {
+  const inputs = [];
+  const numInputs = 28;
+  for (let i = 1; i <= numInputs; i++) {
+    const inputVal = document.getElementById("input" + i).value;
+    if (!inputVal || isNaN(inputVal)) {
+      alert("Please enter a valid number for input " + i);
+      return;
     }
+    inputs.push(parseFloat(inputVal));
+  }
+  loadModel().then(model => {
+    predict(model, inputs).then(output => {
+      const outputText = "Output: " + output.toFixed(2);
+      document.getElementById("output").innerHTML = outputText;
+    });
+  });
+}
+
+
   </script>
 
 </head>
@@ -142,7 +161,7 @@
     <input type="number" id="input28" name="input28"><br>
       
     <br>
-    <button type="button" onclick="predict(model, inputs)">Predict</button>
+    <button type="button" onclick="validateInputs()">Predict</button>
   </form>
 
   <p>Prediction: <span id="prediction"></span></p>
