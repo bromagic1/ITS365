@@ -26,7 +26,11 @@
       }
     </style>
 
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.7.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tfjs-backend-webgl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tfjs-backend-cpu.min.js"></script>
+    <script src="path/to/model.json"></script>
     
     <script>
     // Load the saved model
@@ -34,9 +38,6 @@
       const model = await tf.loadLayersModel('https://bromagic1.github.io/ITS365/ProjectModel/model.json');
       return model;
     }
-        
-           // Load the saved model
-      const model = loadModel();   
 
     // Make a prediction based on input values
 async function predict(model, inputs) {
@@ -46,7 +47,7 @@ async function predict(model, inputs) {
   return output;
 }
         
-        function validateInputs() {
+function validateInputs() {
   const inputs = [];
   const numInputs = 28;
   for (let i = 1; i <= numInputs; i++) {
@@ -59,12 +60,11 @@ async function predict(model, inputs) {
   }
   loadModel().then(model => {
     predict(model, inputs).then(output => {
-      const outputText = "Output: " + output.toFixed(2);
+      const outputText = "Output: " + output;
       document.getElementById("output").innerHTML = outputText;
     });
   });
 }
-
 
   </script>
 
