@@ -34,30 +34,18 @@
       const model = await tf.loadLayersModel('https://bromagic1.github.io/ITS365/ProjectModel/model.json');
       return model;
     }
+        
+           // Load the saved model
+      const model = await loadModel();   
 
     // Make a prediction based on input values
-        async function predict(model, inputs) {
+    async function predict(model, inputs) {
       const inputTensor = tf.tensor2d(inputs, [1, 28]);
       const outputTensor = model.predict(inputTensor);
       const output = outputTensor.dataSync()[0];
       outputTensor.dispose();
       inputTensor.dispose();
       return output;
-    }
-        
-      // Load the saved model
-      const model = await loadModel();
-
-      // Make the prediction
-      const prediction = model.predict(tf.tensor2d([[input1, input2, input3, input4, input5, input6, input7, input8, input9, input10, input11, input12, input13, input14, input15, input16, input17, input18, input19, input20, input21, input22, input23, input24, input25, input26, input27, input28]]));
-      
-      // Convert the prediction to a readable format
-      const predictionData = await prediction.data();
-      const predictedValue = predictionData[0];
-
-      // Update the DOM with the prediction
-      const predictionElement = document.getElementById('prediction');
-      predictionElement.textContent = predictedValue;
     }
   </script>
 
