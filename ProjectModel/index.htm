@@ -1,6 +1,13 @@
 <html>
 
 <head>
+    
+     <style>
+      body {
+        background-color: grey;
+        border: 5px solid black;
+      }
+    </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" ></script>
 
@@ -31,6 +38,7 @@ const model = load();
 
 <body>
 <h3>  Stanley Cup Predictor  </h3>
+    <h2> Upload a csv file with the NHL team stats for the year you wish to predict a Stanley Cup Winner For </h2>
 
 <form id="myForm">
       <input type="file" id="csvFile" accept=".csv" />
