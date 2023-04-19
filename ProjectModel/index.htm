@@ -55,7 +55,7 @@ const model = load();
 
 <body>
 <h2>  Stanley Cup Predictor  </h3>
-    <h3> Upload a csv file with the NHL team stats for the year you wish to predict a Stanley Cup Winner For </h2>
+    <h3> Upload a csv file with the NHL team stats for the year you wish to predict a Stanley Cup winner For </h2>
 
 <input type="file" id="csv-file" accept=".csv">
     <button onclick="predict()">Predict</button>
@@ -73,7 +73,7 @@ const model = load();
           const csvData = event.target.result;
           const data = tf.data.csv(csvData);
 
-          const model = await tf.loadLayersModel('model.json');
+          const model = await tf.loadLayersModel(url);
           const prediction = model.predict(data);
           const result = await prediction.data();
 
