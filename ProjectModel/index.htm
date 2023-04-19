@@ -57,31 +57,129 @@ const model = load();
 <h2>  Stanley Cup Predictor  </h3>
     <h3> Upload a csv file with the NHL team stats for the year you wish to predict a Stanley Cup winner For </h2>
 
-<input type="file" id="csv-file" accept=".csv">
-    <button onclick="predict()">Predict</button>
-    <div id="result"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0/dist/tf.min.js"></script>
-    <script>
-      async function predict() {
-        const fileInput = document.getElementById('csv-file');
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-        reader.readAsText(file);
+  <form id="input-form">
+    <label for="input1">Input 1:</label>
+    <input type="number" id="input1" name="input1"><br>
 
-        reader.onload = async function(event) {
-          const csvData = event.target.result;
-          const data = tf.data.csv(csvData);
+    <label for="input2">Input 2:</label>
+    <input type="number" id="input2" name="input2"><br>
 
-          const model = await tf.loadLayersModel(url);
-          const prediction = model.predict(data);
-          const result = await prediction.data();
+    <label for="input3">Input 3:</label>
+    <input type="number" id="input3" name="input3"><br>
 
-          const output = document.getElementById('result');
-          output.innerHTML = result;
-        };
-      }
-    </script>
+    <label for="input4">Input 4:</label>
+    <input type="number" id="input4" name="input4"><br>
+      
+    <label for="input5">Input 5:</label>
+    <input type="number" id="input5" name="input5"><br>  
+      
+    <label for="input6">Input 6:</label>
+    <input type="number" id="input6" name="input6"><br>
+      
+    <label for="input7">Input 7:</label>
+    <input type="number" id="input7" name="input7"><br>  
+      
+    <label for="input8">Input 8:</label>
+    <input type="number" id="input8" name="input8"><br>  
+      
+    <label for="input9">Input 9:</label>
+    <input type="number" id="input9" name="input9"><br>
+     
+    <label for="input10">Input 10:</label>
+    <input type="number" id="input10" name="input10"><br>
+      
+    <label for="input11">Input 11:</label>
+    <input type="number" id="input11" name="input11"><br>
+      
+    <label for="input12">Input 12:</label>
+    <input type="number" id="input12" name="input12"><br>
+      
+    <label for="input13">Input 13:</label>
+    <input type="number" id="input13" name="input13"><br>
+      
+    <label for="input14">Input 14:</label>
+    <input type="number" id="input14" name="input14"><br>
+      
+    <label for="input15">Input 15:</label>
+    <input type="number" id="input15" name="input15"><br>
+      
+    <label for="input16">Input 16:</label>
+    <input type="number" id="input16" name="input16"><br>
+      
+    <label for="input17">Input 17:</label>
+    <input type="number" id="input17" name="input17"><br>
+      
+    <label for="input18">Input 18:</label>
+    <input type="number" id="input18" name="input18"><br>
+      
+    <label for="input19">Input 19:</label>
+    <input type="number" id="input19" name="input19"><br>
+      
+    <label for="input20">Input 20:</label>
+    <input type="number" id="input20" name="input20"><br>
+      
+    <label for="input21">Input 21:</label>
+    <input type="number" id="input21" name="input21"><br>
+      
+    <label for="input22">Input 22:</label>
+    <input type="number" id="input22" name="input22"><br>  
+      
+    <label for="input23">Input 23:</label>
+    <input type="number" id="input23" name="input23"><br>
+      
+    <label for="input24">Input 24:</label>
+    <input type="number" id="input24" name="input24"><br>
+      
+    <label for="input25">Input 25:</label>
+    <input type="number" id="input25" name="input25"><br>
+      
+    <label for="input26">Input 26:</label>
+    <input type="number" id="input26" name="input26"><br>
+      
+    <label for="input27">Input 27:</label>
+    <input type="number" id="input27" name="input27"><br>
+      
+    <label for="input28>Input 28:</label>
+    <input type="number" id="input28" name="input28"><br>  
+      
+      
+    <button type="button" onclick="predict()">Predict</button>
+  </form>
+
+  <p>Prediction: <span id="prediction"></span></p>
+
+  <script>
+    // Load the saved model
+    async function loadModel() {
+      const model = await tf.loadLayersModel('https://bromagic1.github.io/ITS365/ProjectModel/model.json');
+      return model;
+    }
+
+    // Make a prediction based on input values
+    async function predict() {
+      // Get input values
+      const input1 = Number(document.getElementById('input1').value);
+      const input2 = Number(document.getElementById('input2').value);
+      const input3 = Number(document.getElementById('input3').value);
+
+      // Repeat for inputs 4 to 28
+
+      // Load the saved model
+      const model = await loadModel();
+
+      // Make the prediction
+      const prediction = model.predict(tf.tensor2d([[input1, input2, input3, ..., input28]]));
+      
+      // Convert the prediction to a readable format
+      const predictionData = await prediction.data();
+      const predictedValue = predictionData[0];
+
+      // Update the DOM with the prediction
+      const predictionElement = document.getElementById('prediction');
+      predictionElement.textContent = predictedValue;
+    }
+  </script>
 
 </body>
 
