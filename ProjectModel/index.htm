@@ -14,13 +14,11 @@ async function load() {
 
 function predict(model) {
 
-    const userInput = document.getElementById('userInput').value;
-    const userInput2 = document.getElementById('userInput2').value;
-    const inputTensor = tf.tensor([[parseInt(userInput), (userInput2)]]);
+    const userInput = document.getElementById('csvFile').value;
+    const inputTensor = tf.tensor([[parseInt(userInput)]]);
 
     model.then(model => {
         let result = model.predict(inputTensor);
-        result = result.round().dataSync()[0];
         alert("Predicted Stanley Cup Winner: " + result);
         
     });
