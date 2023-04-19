@@ -28,29 +28,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" ></script>
 
-<script>
-
-async function load() {
-    const url = 'https://bromagic1.github.io/ITS365/ProjectModel/model.json';
-    const model = await tf.loadLayersModel(url);
-    return model;
-};
-
-function predict(model) {
-
-    const userInput = document.getElementById('csvFile').value;
-    const inputTensor = tf.tensor([[parseInt(userInput)]]);
-
-    model.then(model => {
-        let result = model.predict(inputTensor);
-        alert("Predicted Stanley Cup Winner: " + result);
-        
-    });
-};
-
-const model = load();
-
-</script>
 </head>
 
 <body>
@@ -140,6 +117,8 @@ const model = load();
     <label for="input27">Input 27:</label>
     <input type="number" id="input27" name="input27"><br>
       
+    <label for="input28">Input 28:</label>
+    <input type="number" id="input28" name="input28"><br>
       
     <button type="button" onclick="predict()">Predict</button>
   </form>
@@ -183,12 +162,13 @@ const model = load();
       const input25 = Number(document.getElementById('input25').value);
       const input26 = Number(document.getElementById('input26').value);
       const input27 = Number(document.getElementById('input27').value);
-
+      const input28 = Number(document.getElementById('input28').value);
+        
       // Load the saved model
       const model = await loadModel();
 
       // Make the prediction
-      const prediction = model.predict(tf.tensor2d([[input1, input2, input3, ..., input27]]));
+      const prediction = model.predict(tf.tensor2d([[input1, input2, input3, ..., input28]]));
       
       // Convert the prediction to a readable format
       const predictionData = await prediction.data();
