@@ -30,13 +30,15 @@
     
     <script>
     // Load the saved model
-    async function loadModel() {
-      const model = await tf.loadLayersModel('https://bromagic1.github.io/ITS365/ProjectModel/model.json');
-      return model;
+    async function load() {
+    const url = 'https://bromagic1.github.io/ITS365/ProjectModel/model.json';
+    const model = await tf.loadLayersModel(url);
+    return model;
     }
 
     // Make a prediction based on input values
-async function predict(model) {
+ function predict(model) {
+     
     const input1 = document.getElementById('input1').value;
     const input2 = document.getElementById('input2').value;
     const input3 = document.getElementById('input3').value;
@@ -75,8 +77,8 @@ async function predict(model) {
         
     });
 };
-
         
+        const model = load();
 
 
   </script>
@@ -174,10 +176,8 @@ async function predict(model) {
     <input type="number" id="input28" name="input28"><br>
       
     <br>
-    <button type="button" onclick="predict(model)">Predict</button>
+    <button onclick="predict(model)">Predict</button>
   </form>
-
-  <p>Prediction: <span id="output"></span></p>
 
 </body>
 
