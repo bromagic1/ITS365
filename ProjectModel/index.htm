@@ -36,31 +36,48 @@
     }
 
     // Make a prediction based on input values
-async function predict(model, inputs) {
-  const inputTensor = tf.tensor2d(inputs, [1, 28]);
-  const outputTensor = model.predict(inputTensor);
-  const output = outputTensor.dataSync()[0];
-  return output;
-}
+async function predict(model) {
+    const input1 = document.getElementById('input1').value;
+    const input2 = document.getElementById('input2').value;
+    const input3 = document.getElementById('input3').value;
+    const input4 = document.getElementById('input4').value;
+    const input5 = document.getElementById('input5').value;
+    const input6 = document.getElementById('input6').value;
+    const input7 = document.getElementById('input7').value;
+    const input8 = document.getElementById('input8').value;
+    const input9 = document.getElementById('input9').value;
+    const input10 = document.getElementById('input10').value;
+    const input11 = document.getElementById('input11').value;
+    const input12 = document.getElementById('input12').value;
+    const input13 = document.getElementById('input13').value;
+    const input14 = document.getElementById('input14').value;
+    const input15 = document.getElementById('input15').value;
+    const input16 = document.getElementById('input16').value;
+    const input17 = document.getElementById('input17').value;
+    const input18 = document.getElementById('input18').value;
+    const input19 = document.getElementById('input19').value;
+    const input20 = document.getElementById('input20').value;
+    const input21 = document.getElementById('input21').value;
+    const input22 = document.getElementById('input22').value;
+    const input23 = document.getElementById('input23').value;
+    const input24 = document.getElementById('input24').value;
+    const input25 = document.getElementById('input25').value;
+    const input26 = document.getElementById('input26').value;
+    const input27 = document.getElementById('input27').value;
+    const input28 = document.getElementById('input28').value;
+    
+    const inputTensor = tf.tensor([[parseFloat(input1), (input2), (input3), (input4), (input5), (input6), (input7), (input8), (input9), (input10), (input11), (input12), (input13), (input14), (input15), (input16), (input17), (input18), (input19), (input20), (input21), (input22), (input23), (input24), (input25), (input26), (input27), (input28)]]);
+    
+        model.then(model => {
+        let result = model.predict(inputTensor);
+        result = result.round().dataSync()[0];
+        alert("Prediction: " + result);
         
-function validateInputs() {
-  const inputs = [];
-  const numInputs = 28;
-  for (let i = 1; i <= numInputs; i++) {
-    const inputVal = document.getElementById("input" + i).value;
-    if (!inputVal || isNaN(inputVal)) {
-      alert("Please enter a valid number for input " + i);
-      return;
-    }
-    inputs.push(parseFloat(inputVal));
-  }
-  loadModel().then(model => {
-    predict(model, inputs).then(output => {
-      const outputText = "Output: " + output;
-      document.getElementById("output").innerHTML = outputText;
     });
-  });
-}
+};
+
+        
+
 
   </script>
 
@@ -157,7 +174,7 @@ function validateInputs() {
     <input type="number" id="input28" name="input28"><br>
       
     <br>
-    <button type="button" onclick="validateInputs()">Predict</button>
+    <button type="button" onclick="predict(model)">Predict</button>
   </form>
 
   <p>Prediction: <span id="output"></span></p>
