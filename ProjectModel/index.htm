@@ -79,7 +79,13 @@
         
         const model = load();
 
-
+        function showAlertBox() {
+			var input = document.getElementById("textbox").value;
+			alert("You entered: " + input);
+		}
+        
+        
+        
   </script>
 
 </head>
@@ -88,35 +94,91 @@
 <h2>  Stanley Cup Predictor  </h3>
     <h3> Input a team's stats to see the percentage chance that they will win the Stanley Cup </h2>
  <form id="input-form">
-  <input id="input1" type="text">  </input>
-  <input id="input2" type="text">  </input>
-  <input id="input3" type="text">  </input>
-  <input id="input4" type="text">  </input>
-  <input id="input5" type="text">  </input>
-  <input id="input6" type="text">  </input>
-  <input id="input7" type="text">  </input>
-  <input id="input8" type="text">  </input>
-  <input id="input9" type="text">  </input>
-  <input id="input10" type="text">  </input>
-  <input id="input11" type="text">  </input>
-  <input id="input12" type="text">  </input>
-  <input id="input13" type="text">  </input>
-  <input id="input14" type="text">  </input>
-  <input id="input15" type="text">  </input>
-  <input id="input16" type="text">  </input>
-  <input id="input17" type="text">  </input>
-  <input id="input18" type="text">  </input>
-  <input id="input19" type="text">  </input>
-  <input id="input20" type="text">  </input>
-  <input id="input21" type="text">  </input>
-  <input id="input22" type="text">  </input>
-  <input id="input23" type="text">  </input>
-  <input id="input24" type="text">  </input>
-  <input id="input25" type="text">  </input>
-  <input id="input26" type="text">  </input>
-  <input id="input27" type="text">  </input>
-  <input id="input28" type="text">  </input>
-
+	    <label for="input1">Input 1: </label>
+	<input type="text" id="input1" onkeyup="showAlertBox()">
+     
+     	<label for="input2">Input 2: </label>
+	<input type="text" id="input2" onkeyup="showAlertBox()">
+     
+     	<label for="input3">Input 3: </label>
+	<input type="text" id="input3" onkeyup="showAlertBox()">
+     
+     	<label for="input4">Input 4: </label>
+	<input type="text" id="input4" onkeyup="showAlertBox()">
+     
+     	<label for="input5">Input 5: </label>
+	<input type="text" id="input5" onkeyup="showAlertBox()">
+     
+     	<label for="input6">Input 6: </label>
+	<input type="text" id="input6" onkeyup="showAlertBox()">
+     
+     	<label for="input7">Input 7: </label>
+	<input type="text" id="input7" onkeyup="showAlertBox()">
+     
+     	<label for="input8">Input 8: </label>
+	<input type="text" id="input8" onkeyup="showAlertBox()">
+     
+     	<label for="input9">Input 9: </label>
+	<input type="text" id="input9" onkeyup="showAlertBox()">
+     
+     	<label for="input10">Input 10: </label>
+	<input type="text" id="input10" onkeyup="showAlertBox()">
+     
+     	<label for="input11">Input 11: </label>
+	<input type="text" id="input11" onkeyup="showAlertBox()">
+     
+     	<label for="input12">Input 12: </label>
+	<input type="text" id="input12" onkeyup="showAlertBox()">
+     
+     	<label for="input13">Input 13: </label>
+	<input type="text" id="input13" onkeyup="showAlertBox()">
+     
+     	<label for="input14">Input 14: </label>
+	<input type="text" id="input14" onkeyup="showAlertBox()">
+     
+     	<label for="input15">Input 15: </label>
+	<input type="text" id="input15" onkeyup="showAlertBox()">
+     
+     	<label for="input16">Input 16: </label>
+	<input type="text" id="input16" onkeyup="showAlertBox()">
+     
+     	<label for="input17">Input 17: </label>
+	<input type="text" id="input1" onkeyup="showAlertBox()">
+     
+     	<label for="input18">Input 18: </label>
+	<input type="text" id="input1" onkeyup="showAlertBox()">
+     
+     	<label for="input19">Input 19: </label>
+	<input type="text" id="input19" onkeyup="showAlertBox()">
+     
+     	<label for="input20">Input 20: </label>
+	<input type="text" id="input20" onkeyup="showAlertBox()">
+     
+     	<label for="input21">Input 21: </label>
+	<input type="text" id="input21" onkeyup="showAlertBox()">
+     
+          	<label for="input22">Input 22: </label>
+	<input type="text" id="input22" onkeyup="showAlertBox()">
+     
+          	<label for="input23">Input 23: </label>
+	<input type="text" id="input23" onkeyup="showAlertBox()">
+     
+          	<label for="input24">Input 24: </label>
+	<input type="text" id="input24" onkeyup="showAlertBox()">
+     
+          	<label for="input25">Input 25: </label>
+	<input type="text" id="input25" onkeyup="showAlertBox()">
+     
+          	<label for="input26">Input 26: </label>
+	<input type="text" id="input26" onkeyup="showAlertBox()">
+     
+          	<label for="input27">Input 27: </label>
+	<input type="text" id="input27" onkeyup="showAlertBox()">
+     
+          	<label for="input28">Input 28: </label>
+	<input type="text" id="input28" onkeyup="showAlertBox()">
+     
+     
     <br>
     <button onclick="predict(model)">Predict</button>
   </form>
