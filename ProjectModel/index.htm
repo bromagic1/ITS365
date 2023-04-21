@@ -104,6 +104,7 @@
 	 
         model.then(model => {
         let result = model.predict(inputTensor);
+	result = result.round().dataSync()[6];
         alert("Prediction: " + result);
         
     });
