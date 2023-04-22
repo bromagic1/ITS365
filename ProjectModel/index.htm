@@ -26,30 +26,20 @@
       }
     </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tf.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js" ></script>
     
     <script>
     // Load the saved model
 // Load the saved model
 async function load() {
-  const url = 'https://bromagic1.github.io/ITS365/ProjectModel/model.json';
-  try {
+    const url = 'https://bromagic1.github.io/ITS365/XOR/model.json';
     const model = await tf.loadLayersModel(url);
-    console.log('Model loaded successfully');
     return model;
-  } catch (error) {
-    console.error('Error loading model:', error);
-    return null;
-  }
-}
+};
 
 // Make a prediction based on input values
 async function predict(model) {
-  if (!model) {
-    console.error('Model not loaded');
-    return null;
-  }
-
+	
   const input1 = 1;
   const input2 = 82;
   const input3 = 65;
@@ -79,9 +69,7 @@ async function predict(model) {
   const input27 = 0.929;
   const input28 = 7;
 
-  try {
-    const inputTensor = tf.tensor([
-      [
+    const inputTensor = tf.tensor([[
         parseFloat(input1),
         parseFloat(input2),
         parseFloat(input3),
@@ -109,29 +97,16 @@ async function predict(model) {
         parseFloat(input25),
         parseFloat(input26),
         parseFloat(input27),
-        parseFloat(input28),
-      ],
-    ]);
-    console.log('Input tensor:', inputTensor.toString());
-    const result = await model.predict(inputTensor).data();
-    console.log('Prediction:', result);
-    return result;
-  } catch (error) {
-    console.error('Error predicting:', error);
-    return null;
-  }
-}
+        parseFloat(input28)
+      ]]);
 
-// Load the model and make a prediction
-(async function() {
-  const model = await load();
-  const prediction = await predict(model);
-  if (prediction !== null) {
-    alert(`Prediction: ${prediction}`);
-  } else {
-    alert('Error predicting');
-  }
-})();
+    model.then(model => {
+        let result = model.predict(inputTensor);
+        result = result.dataSync()[0];
+        alert("Prediction: " + result);
+	    
+	const model = load();
+
   </script>
 
 </head>
