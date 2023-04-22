@@ -54,8 +54,7 @@ async function load() {
 
 // Make a prediction based on input values
 function predict(model) {
-       const inputTensor = tf.tensor([
-          [
+       const inputTensor = tf.tensor([[
             parseFloat(document.getElementById("input1").value),
             parseFloat(document.getElementById("input2").value),
             parseFloat(document.getElementById("input3").value),
@@ -84,14 +83,14 @@ function predict(model) {
             parseFloat(document.getElementById("input26").value),
             parseFloat(document.getElementById("input27").value),
             parseFloat(document.getElementById("input28").value),
-          ],
-        ]);
+          ]]);
 
     model.then(model => {
         let result = model.predict(inputTensor);
 	 result = result.dataSync();
 	 result = Math.floor(result * 100);
-        alert("Prediction: " + result + "% chance of winning the Stanley Cup");
+         result = ("Prediction: " + result + "% chance of winning the Stanley Cup");
+	    outputElement.innerHTML = result;
     });
 };
 	    
