@@ -25,11 +25,6 @@
         box-sizing: border-box;
       }
 	     
-.input-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
 
       label {
         margin-bottom: 5px;
@@ -132,144 +127,89 @@ const model = load();
 	
 <form id="input-form">
 	
-      <div class="input-container">
          <label for="input1">Made Playoffs (1 or 0)</label>
          <input id="input1" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input2">Games Played</label>
         <input id="input2" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input3">Wins</label>
         <input id="input3" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input4">Losses</label>
         <input id="input4" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input5">Ties</label>
         <input id="input5" type="number">
-      </div>
-	
-      <div class="input-container">
+
         <label for="input6">Points</label>
         <input id="input6" type="number">
-      </div>
-	
-      <div class="input-container">
+
         <label for="input7">Points%</label>
         <input id="input7" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input8">Goals For</label>
         <input id="input8" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input9">Goals Against</label>
         <input id="input9" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input10">SRS</label>
         <input id="input10" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input11">SOS</label>
         <input id="input11" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input12">Goals For/Game</label>
         <input id="input12" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input13">Goals Against/Game</label>
         <input id="input13" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input14">Power Play Goals</label>
         <input id="input14" type="number">
-      </div>
-      <div class="input-container">
+
         <label for="input15">Power Play Opportunities</label>
         <input id="input15" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input16">Power Play Conversion%</label>
         <input id="input16" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input17">Power Play Goals Against</label>
         <input id="input17" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input18">Power Play Opportuntiies Against</label>
         <input id="input18" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input19">Penalty Kill %</label>
         <input id="input19" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input20">Shorthanded Goals</label>
         <input id="input20" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input21">Shorthanded Goals Against</label>
         <input id="input21" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input22">Penalty Minutes/Game</label>
         <input id="input22" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input23">Penalty Minutes Against/Game</label>
         <input id="input23" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input24">Shots on Goal</label>
         <input id="input24" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input25">Shot%</label>
         <input id="input25" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input26">Shots Against</label>
         <input id="input26" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input27">Save%</label>
         <input id="input27" type="number">
-      </div>
 	
-      <div class="input-container">
         <label for="input28">Shutouts</label>
         <input id="input28" type="number">
-      </div>
 
     <button onclick="predict(model)">Predict</button>
 	
