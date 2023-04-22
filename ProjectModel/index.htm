@@ -53,52 +53,84 @@ async function load() {
 
 // Make a prediction based on input values
 function predict(model) {
-       const inputTensor = tf.tensor([[
-            parseFloat(document.getElementById("input1").value),
-            parseFloat(document.getElementById("input2").value),
-            parseFloat(document.getElementById("input3").value),
-            parseFloat(document.getElementById("input4").value),
-            parseFloat(document.getElementById("input5").value),
-            parseFloat(document.getElementById("input6").value),
-            parseFloat(document.getElementById("input7").value),
-            parseFloat(document.getElementById("input8").value),
-            parseFloat(document.getElementById("input9").value),
-            parseFloat(document.getElementById("input10").value),
-            parseFloat(document.getElementById("input11").value),
-            parseFloat(document.getElementById("input12").value),
-            parseFloat(document.getElementById("input13").value),
-            parseFloat(document.getElementById("input14").value),
-            parseFloat(document.getElementById("input15").value),
-            parseFloat(document.getElementById("input16").value),
-            parseFloat(document.getElementById("input17").value),
-            parseFloat(document.getElementById("input18").value),
-            parseFloat(document.getElementById("input19").value),
-            parseFloat(document.getElementById("input20").value),
-            parseFloat(document.getElementById("input21").value),
-            parseFloat(document.getElementById("input22").value),
-            parseFloat(document.getElementById("input23").value),
-            parseFloat(document.getElementById("input24").value),
-            parseFloat(document.getElementById("input25").value),
-            parseFloat(document.getElementById("input26").value),
-            parseFloat(document.getElementById("input27").value),
-            parseFloat(document.getElementById("input28").value),
+	
+const input1 = document.getElementById('input1').value;
+const input2 = document.getElementById('input2').value;
+const input3 = document.getElementById('input3').value;
+const input4 = document.getElementById('input4').value;
+const input5 = document.getElementById('input5').value;
+const input6 = document.getElementById('input6').value;
+const input7 = document.getElementById('input7').value;
+const input8 = document.getElementById('input8').value;
+const input9 = document.getElementById('input9').value;
+const input10 = document.getElementById('input10').value;
+const input11 = document.getElementById('input11').value;
+const input12 = document.getElementById('input12').value;
+const input13 = document.getElementById('input13').value;
+const input14 = document.getElementById('input14').value;
+const input15 = document.getElementById('input15').value;
+const input16 = document.getElementById('input16').value;
+const input17 = document.getElementById('input17').value;
+const input18 = document.getElementById('input18').value;
+const input19 = document.getElementById('input19').value;
+const input20 = document.getElementById('input20').value;
+const input21 = document.getElementById('input21').value;
+const input22 = document.getElementById('input22').value;	
+const input23 = document.getElementById('input23').value;
+const input24 = document.getElementById('input24').value;	
+const input25 = document.getElementById('input25').value;
+const input26 = document.getElementById('input26').value;	
+const input27 = document.getElementById('input27').value;
+const input28 = document.getElementById('input28').value;	
+	
+	
+const inputTensor = tf.tensor([[
+        parseFloat(input1),
+	parseFloat(input2),
+        parseFloat(input3),
+	parseFloat(input4),
+        parseFloat(input5),
+	parseFloat(input6),
+        parseFloat(input7),
+	parseFloat(input8),
+        parseFloat(input9),
+	parseFloat(input10),
+        parseFloat(input11),
+	parseFloat(input12),
+        parseFloat(input13),
+	parseFloat(input14),
+        parseFloat(input15),
+	parseFloat(input16),
+        parseFloat(input17),
+	parseFloat(input18),
+        parseFloat(input19),
+	parseFloat(input20),
+        parseFloat(input21),
+	parseFloat(input22),
+        parseFloat(input23),
+	parseFloat(input24),
+        parseFloat(input25),
+	parseFloat(input26),
+        parseFloat(input27),
+	parseFloat(input28),
           ]]);
 
     model.then(model => {
         let result = model.predict(inputTensor);
-	 result = result.dataSync();
-	 result = Math.floor(result * 100);
-         let resultOutput = ("Prediction: " + result + "% chance of winning the Stanley Cup");
-	    outputElement.innerHTML = resultOutput;
+	result = result.dataSync();
+	result = Math.floor(result * 100);
+        let resultOutput = ("Prediction: " + result + "% chance of winning the Stanley Cup");
+	outputElement.innerHTML = resultOutput;
     });
 };
 	    
 const model = load();
-  </script>
-
+	
+</script>
 </head>
 
 <body>
+	
 <h2>  Stanley Cup Predictor  </h3>
     <h3> Input a team's stats to see the percentage chance that they will win the Stanley Cup </h2>
 	
@@ -244,6 +276,7 @@ const model = load();
       </div>
 
     <button onclick="predict(model)">Predict</button>
+	
   </form>
 
 </body>
