@@ -38,7 +38,8 @@ async function load() {
 };
 
 // Make a prediction based on input values
-function predict(model) {
+async function predict(model) {
+const model = await load();
 	
   const input1 = 1;
   const input2 = 82;
