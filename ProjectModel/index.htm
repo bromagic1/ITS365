@@ -102,7 +102,7 @@ function predict(model) {
 
     model.then(model => {
         let result = model.predict(inputTensor);
-	 result = result.round().dataSync()[2];
+	 result = result.round(100*X)/100;.dataSync();
         alert("Prediction: " + result + "% chance of winning the Stanley Cup");
     });
 };
