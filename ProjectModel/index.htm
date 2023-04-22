@@ -40,35 +40,35 @@ async function load() {
 // Make a prediction based on input values
 function predict(model) {
 	
-  const input1 = 1;
-  const input2 = 82;
-  const input3 = 65;
-  const input4 = 12;
-  const input5 = 5;
-  const input6 = 135;
-  const input7 = 0.823;
-  const input8 = 301;
-  const input9 = 174;
-  const input10 = 1.54;
-  const input11 = -0.02;
-  const input12 = 3.67;
-  const input13 = 2.12;
-  const input14 = 62;
-  const input15 = 279;
-  const input16 = 22.22;
-  const input17 = 36;
-  const input18 = 283;
-  const input19 = 87.28;
-  const input20 = 8;
-  const input21 = 8;
-  const input22 = 10.5;
-  const input23 = 9.9;
-  const input24 = 2703;
-  const input25 = 11.1;
-  const input26 = 2447;
-  const input27 = 0.929;
-  const input28 = 7;
-
+  const input1 = document.getElementById('input1').value;
+  const input2 = document.getElementById('input2').value;	
+  const input3 = document.getElementById('input3').value;
+  const input4 = document.getElementById('input4').value;
+  const input5 = document.getElementById('input5').value;
+  const input6 = document.getElementById('input6').value;
+  const input7 = document.getElementById('input7').value;
+  const input8 = document.getElementById('input8').value;
+  const input9 = document.getElementById('input9').value;
+  const input10 = document.getElementById('input10').value;
+  const input11 = document.getElementById('input11').value;
+  const input12 = document.getElementById('input12').value;	
+  const input13 = document.getElementById('input13').value;
+  const input14 = document.getElementById('input14').value;
+  const input15 = document.getElementById('input15').value;
+  const input16 = document.getElementById('input16').value;
+  const input17 = document.getElementById('input17').value;
+  const input18 = document.getElementById('input18').value;
+  const input19 = document.getElementById('input19').value;
+  const input20 = document.getElementById('input20').value;
+  const input21 = document.getElementById('input21').value;
+  const input22 = document.getElementById('input22').value;	
+  const input23 = document.getElementById('input23').value;
+  const input24 = document.getElementById('input23').value;
+  const input25 = document.getElementById('input25').value;
+  const input26 = document.getElementById('input26').value;
+  const input27 = document.getElementById('input27').value;
+  const input28 = document.getElementById('input28').value;
+	
   const inputTensor = tf.tensor([[
           parseFloat(input1),
 	  parseFloat(input2),
@@ -118,7 +118,7 @@ const model = load();
     <h3> Input a team's stats to see the percentage chance that they will win the Stanley Cup </h2>
 	
  <form id="input-form">
-  <input id="input1" type="text">  </input>
+  <input id="input1" type="text"> Made the Playoffs (1 or 0) </input>
   <input id="input2" type="text">  </input>
   <input id="input3" type="text">  </input>
   <input id="input4" type="text">  </input>
