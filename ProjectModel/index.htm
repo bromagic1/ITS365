@@ -103,7 +103,7 @@ function predict(model) {
     model.then(model => {
         let result = model.predict(inputTensor);
         result = result.dataSync()[0];
-        alert("Prediction: " + result);
+        alert("Prediction: " + Tensor.print());
     });
 };
 	    
