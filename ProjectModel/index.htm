@@ -38,7 +38,7 @@ async function load() {
 };
 
 // Make a prediction based on input values
-async function predict(model) {
+function predict(model) {
 	
   const input1 = 1;
   const input2 = 82;
@@ -104,6 +104,8 @@ async function predict(model) {
         let result = model.predict(inputTensor);
         result = result.dataSync()[0];
         alert("Prediction: " + result);
+    });
+};
 	    
 	const model = load();
 
