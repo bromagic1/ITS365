@@ -30,87 +30,108 @@
     
     <script>
     // Load the saved model
-    async function load() {
-    const url = 'https://bromagic1.github.io/ITS365/ProjectModel/model.json';
+// Load the saved model
+async function load() {
+  const url = 'https://bromagic1.github.io/ITS365/ProjectModel/model.json';
+  try {
     const model = await tf.loadLayersModel(url);
+    console.log('Model loaded successfully');
     return model;
-    }
+  } catch (error) {
+    console.error('Error loading model:', error);
+    return null;
+  }
+}
 
-    // Make a prediction based on input values
- function predict(model) {
-     
-    const input1 = 1;
-    const input2 = 82;
-    const input3 = 65;
-    const input4 = 12;
-    const input5 = 5;
-    const input6 = 135;
-    const input7 = 0.823;
-    const input8 = 301;
-    const input9 = 174;
-    const input10 = 1.54;
-    const input11 = -0.02;
-    const input12 = 3.67;
-    const input13 = 2.12;
-    const input14 = 62;
-    const input15 = 279;
-    const input16 = 22.22;
-    const input17 = 36;
-    const input18 = 283;
-    const input19 = 87.28;
-    const input20 = 8;
-    const input21 = 8;
-    const input22 = 10.5;
-    const input23 = 9.9;
-    const input24 = 2703;
-    const input25 = 11.1;
-    const input26 = 2447;
-    const input27 = 0.929;
-    const input28 = 7;
-    
-    const inputTensor = tf.tensor([[
-	    			    parseFloat(input1), 
-				    parseFloat(input2), 
-				    parseFloat(input3), 
-				    parseFloat(input4), 
-				    parseFloat(input5), 
-				    parseFloat(input6), 
-				    parseFloat(input7), 
-				    parseFloat(input8), 
-				    parseFloat(input9), 
-				    parseFloat(input10), 
-				    parseFloat(input11), 
-				    parseFloat(input12), 
-				    parseFloat(input13), 
-				    parseFloat(input14), 
-				    parseFloat(input15), 
-				    parseFloat(input16), 
-				    parseFloat(input17), 
-				    parseFloat(input18), 
-				    parseFloat(input19), 
-				    parseFloat(input20), 
-				    parseFloat(input21), 
-				    parseFloat(input22), 
-				    parseFloat(input23), 
-				    parseFloat(input24), 
-				    parseFloat(input25), 
-				    parseFloat(input26), 
-				    parseFloat(input27), 
-				    parseFloat(input28)
-				   ]]);
-	 
-	 alert(inputTensor)
-    
-	 
-        model.then(model => {
-        let result = model.predict(inputTensor);
-        alert("Prediction: " + result.dataSync());
-        
-    });
-};
-        
-        const model = load();
-        
+// Make a prediction based on input values
+async function predict(model) {
+  if (!model) {
+    console.error('Model not loaded');
+    return null;
+  }
+
+  const input1 = 1;
+  const input2 = 82;
+  const input3 = 65;
+  const input4 = 12;
+  const input5 = 5;
+  const input6 = 135;
+  const input7 = 0.823;
+  const input8 = 301;
+  const input9 = 174;
+  const input10 = 1.54;
+  const input11 = -0.02;
+  const input12 = 3.67;
+  const input13 = 2.12;
+  const input14 = 62;
+  const input15 = 279;
+  const input16 = 22.22;
+  const input17 = 36;
+  const input18 = 283;
+  const input19 = 87.28;
+  const input20 = 8;
+  const input21 = 8;
+  const input22 = 10.5;
+  const input23 = 9.9;
+  const input24 = 2703;
+  const input25 = 11.1;
+  const input26 = 2447;
+  const input27 = 0.929;
+  const input28 = 7;
+
+  try {
+    const inputTensor = tf.tensor([
+      [
+        parseFloat(input1),
+        parseFloat(input2),
+        parseFloat(input3),
+        parseFloat(input4),
+        parseFloat(input5),
+        parseFloat(input6),
+        parseFloat(input7),
+        parseFloat(input8),
+        parseFloat(input9),
+        parseFloat(input10),
+        parseFloat(input11),
+        parseFloat(input12),
+        parseFloat(input13),
+        parseFloat(input14),
+        parseFloat(input15),
+        parseFloat(input16),
+        parseFloat(input17),
+        parseFloat(input18),
+        parseFloat(input19),
+        parseFloat(input20),
+        parseFloat(input21),
+        parseFloat(input22),
+        parseFloat(input23),
+        parseFloat(input24),
+        parseFloat(input25),
+        parseFloat(input26),
+        parseFloat(input27),
+        parseFloat(input28),
+      ],
+    ]);
+    console.log('Input tensor:', inputTensor.toString());
+    const result = await model.predict(inputTensor).data();
+    console.log('Prediction:', result);
+    return result;
+  } catch (error) {
+    console.error('Error predicting:', error);
+    return null;
+  }
+}
+
+// Load the model and make a prediction
+(async function() {
+  const model = await load();
+  const prediction = await predict(model);
+  if (prediction !== null) {
+    alert(`Prediction: ${prediction}`);
+  } else {
+    alert('Error predicting');
+  }
+})();
   </script>
 
 </head>
