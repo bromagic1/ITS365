@@ -110,8 +110,7 @@ const inputTensor = tf.tensor([[
         let result = model.predict(inputTensor);
 	result = result.dataSync();
 	result = Math.floor(result * 100);
-        let resultOutput = ("Prediction: " + result + "% chance of winning the Stanley Cup");
-	outputElement.innerHTML = resultOutput;
+        alert("Prediction: " + result + "% chance of winning the Stanley Cup")
     });
 };
 	    
